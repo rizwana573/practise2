@@ -1,21 +1,36 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Home from "./components/Home";
+import StepForm from "./components/StepForm";
 import Footer from "./components/Footer";
 
 function App() {
-  const [steps, setSteps] = useState({
-    step1: true,
-    step2: false,
-    step3: false,
-    step4: false,
-    step5: false,
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState({
+    email: "",
+    country: "",
+    phone: "",
+    confirmNumber: "",
+    acceptLegal: false,
+    name: "",
+    address: "",
+    signature: "",
+    agreeTerms: false,
+    accountType: "",
+    initialDeposit: "",
+    fundingMethod: "",
+    cardNumber: "",
+    bankName: "",
+    enrollOnlineBanking: false,
   });
   return (
     <>
-      <Header steps={steps} />
-      <Home steps={steps} setSteps={setSteps} />
+      <StepForm
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
+        formData={formData}
+        setFormData={setFormData}
+      />
       <Footer />
     </>
   );
